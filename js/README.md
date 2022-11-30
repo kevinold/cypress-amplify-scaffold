@@ -1,0 +1,42 @@
+
+### Modules needed
+    
+Run
+```sh
+./install-npm-modules.sh
+```
+
+### Scripts needed for package.json
+```json
+{  
+  "scripts": {
+    "build:aws-exports-mjs": "cp src/aws-exports.js src/aws-exports.mjs",
+    "precy:open": "yarn build:aws-exports-mjs",
+    "cy:open": "cypress open --e2e",
+    "pretest:provisionCognitoUsers": "npm run build:aws-exports-mjs",
+    "test:provisionCognitoUsers": "node --experimental-json-modules scripts/provisionCognitoUsers.mjs"
+  },
+  "eslintConfig": {
+    "env": {
+      "cypress/globals": true
+    },
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended",
+      "plugin:cypress/recommended"
+    ],
+    "plugins": [
+      "cypress",
+      "prettier"
+    ],
+    "rules": {
+      "no-unused-expressions": 0
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "endOfLine": "auto"
+  },
+}
+```
