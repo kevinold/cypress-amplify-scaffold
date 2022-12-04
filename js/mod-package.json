@@ -1,13 +1,3 @@
-
-### Modules needed
-    
-Run
-```sh
-./install-npm-modules.sh
-```
-
-### Scripts needed for package.json
-```json
 {  
   "scripts": {
     "build:aws-exports-mjs": "cp src/aws-exports.js src/aws-exports.mjs",
@@ -37,6 +27,5 @@ Run
     "trailingComma": "es5",
     "printWidth": 100,
     "endOfLine": "auto"
-  },
+  }
 }
-```
